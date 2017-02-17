@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>挑货网</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <link href="iSlider.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f2f2f2;
+            overflow: hidden;
+            font-family: Microsoft YaHei,"Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+        }
+
+        /*ul wrapper*/
+        #iSlider-wrapper {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            position: absolute;
+        }
+
+        #iSlider-wrapper ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #iSlider-wrapper li {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-pack: center;
+            -webkit-box-align: center;
+            list-style: none;
+        }
+
+        #iSlider-wrapper li img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .music-btn {
+            float: right;
+            width: 1.8333333333333rem;
+            height: 1.8333333333333rem;
+            background: url('music-icon.png');
+            background-size: cover;
+        }
+
+        .music-btn.on {
+            -webkit-animation: reverseRotataZ 1.2s linear infinite;
+            animation: reverseRotataZ 1.2s linear infinite;
+            -moz-animation: reverseRotataZ 1.2s linear infinite;
+            -o-animation: reverseRotataZ 1.2s linear infinite;
+        }
+
+        .media-wrap {
+            overflow: hidden;
+            position: fixed;
+            top: 2.9166666666667rem;
+            right: 1.375rem;
+            z-index: 10000;
+            width: 6.5em;
+            height: 6.5em;
+            font-size: 16px;
+        }
+
+        .media-wrap span {
+            float: left;
+            height: 4em;
+            width: 4em;
+            line-height: 3rem;
+            color: #fff;
+            font-size: 1em;
+        }
+
+        .media-wrap i {
+            width: 2.5em;
+            height: 2.5em;
+        }
+
+        @-webkit-keyframes reverseRotataZ {
+            0% {
+                -webkit-transform: rotateZ(0deg);
+                transform:  rotateZ(0deg);
+                -moz-transform:  rotateZ(0deg);
+                -o-transform:  rotateZ(0deg);
+            }
+            100% {
+                -webkit-transform: rotateZ(-360deg);
+                transform:  rotateZ(-360deg);
+                -moz-transform:  rotateZ(-360deg);
+                -o-transform:  rotateZ(-360deg);
+            }
+        }
+        @-webkit-keyframes reverseRotataZ {
+            0% {
+                -webkit-transform: rotateZ(0deg);
+                transform:  rotateZ(0deg);
+                -moz-transform:  rotateZ(0deg);
+                -o-transform:  rotateZ(0deg);
+            }
+            100% {
+                -webkit-transform: rotateZ(-360deg);
+                transform:  rotateZ(-360deg);
+                -moz-transform:  rotateZ(-360deg);
+                -o-transform:  rotateZ(-360deg);
+            }
+        }
+        @-webkit-keyframes reverseRotataZ {
+            0% {
+                -webkit-transform: rotateZ(0deg);
+                transform:  rotateZ(0deg);
+                -moz-transform:  rotateZ(0deg);
+                -o-transform:  rotateZ(0deg);
+            }
+            100% {
+                -webkit-transform: rotateZ(-360deg);
+                transform:  rotateZ(-360deg);
+                -moz-transform:  rotateZ(-360deg);
+                -o-transform:  rotateZ(-360deg);
+            }
+        }
+        @-webkit-keyframes reverseRotataZ {
+            0% {
+                -webkit-transform: rotateZ(0deg);
+                transform:  rotateZ(0deg);
+                -moz-transform:  rotateZ(0deg);
+                -o-transform:  rotateZ(0deg);
+            }
+            100% {
+                -webkit-transform: rotateZ(-360deg);
+                transform:  rotateZ(-360deg);
+                -moz-transform:  rotateZ(-360deg);
+                -o-transform:  rotateZ(-360deg);
+            }
+        }
+
+        /* Arrow */
+        #iSlider-arrow {
+            position: absolute;
+            width: 3em;
+            height: 3em;
+            left: 0;
+            right: 0;
+            bottom: 5%;
+            margin: 0 auto;
+            border-top: 2px solid #fff;
+            border-right: 2px solid #fff;
+            z-index: 10000;
+            opacity: 0.8;
+            -webkit-animation: nextPage 1.2s linear infinite;/* Safari and Chrome */
+            animation: nextPage 1.2s linear infinite;
+            -moz-animation: nextPage 1.2s linear infinite; /* Firefox */
+            -o-animation: nextPage 1.2s linear infinite; /* Opera */
+        }
+
+        @-webkit-keyframes nextPage {
+            0% {
+                -webkit-transform: translateY(40px) rotate(-45deg);
+                transform: translateY(40px) rotate(-45deg);
+                -moz-transform: translateY(40px) rotate(-45deg);
+                -o-transform: translateY(40px) rotate(-45deg);
+                opacity: 0.8;
+            }
+            50% {
+                -webkit-transform: translateY(20px) rotate(-45deg);
+                transform: translateY(20px) rotate(-45deg);
+                -moz-transform: translateY(20px) rotate(-45deg);
+                -o-transform: translateY(20px) rotate(-45deg);
+                opacity: 0.4;
+            }
+            100% {
+                -webkit-transform: translateY(10px) rotate(-45deg);
+                transform: translateY(10px) rotate(-45deg);
+                -moz-transform: translateY(10px) rotate(-45deg);
+                -o-transform: translateY(10px) rotate(-45deg);
+                opacity: 0;
+            }
+        }
+        @keyframes nextPage {
+            0% {
+                -webkit-transform: translateY(40px) rotate(-45deg);
+                transform: translateY(40px) rotate(-45deg);
+                -moz-transform: translateY(40px) rotate(-45deg);
+                -o-transform: translateY(40px) rotate(-45deg);
+                opacity: 0.8;
+            }
+            50% {
+                -webkit-transform: translateY(20px) rotate(-45deg);
+                transform: translateY(20px) rotate(-45deg);
+                -moz-transform: translateY(20px) rotate(-45deg);
+                -o-transform: translateY(20px) rotate(-45deg);
+                opacity: 0.4;
+            }
+            100% {
+                -webkit-transform: translateY(10px) rotate(-45deg);
+                transform: translateY(10px) rotate(-45deg);
+                -moz-transform: translateY(10px) rotate(-45deg);
+                -o-transform: translateY(10px) rotate(-45deg);
+                opacity: 0;
+            }
+        }
+        @-o-keyframes nextPage {
+            0% {
+                -webkit-transform: translateY(40px) rotate(-45deg);
+                transform: translateY(40px) rotate(-45deg);
+                -moz-transform: translateY(40px) rotate(-45deg);
+                -o-transform: translateY(40px) rotate(-45deg);
+                opacity: 0.8;
+            }
+            50% {
+                -webkit-transform: translateY(20px) rotate(-45deg);
+                transform: translateY(20px) rotate(-45deg);
+                -moz-transform: translateY(20px) rotate(-45deg);
+                -o-transform: translateY(20px) rotate(-45deg);
+                opacity: 0.4;
+            }
+            100% {
+                -webkit-transform: translateY(10px) rotate(-45deg);
+                transform: translateY(10px) rotate(-45deg);
+                -moz-transform: translateY(10px) rotate(-45deg);
+                -o-transform: translateY(10px) rotate(-45deg);
+                opacity: 0;
+            }
+        }
+        @-moz-keyframes nextPage {
+            0% {
+                -webkit-transform: translateY(40px) rotate(-45deg);
+                transform: translateY(40px) rotate(-45deg);
+                -moz-transform: translateY(40px) rotate(-45deg);
+                -o-transform: translateY(40px) rotate(-45deg);
+                opacity: 0.8;
+            }
+            50% {
+                -webkit-transform: translateY(20px) rotate(-45deg);
+                transform: translateY(20px) rotate(-45deg);
+                -moz-transform: translateY(20px) rotate(-45deg);
+                -o-transform: translateY(20px) rotate(-45deg);
+                opacity: 0.4;
+            }
+            100% {
+                -webkit-transform: translateY(10px) rotate(-45deg);
+                transform: translateY(10px) rotate(-45deg);
+                -moz-transform: translateY(10px) rotate(-45deg);
+                -o-transform: translateY(10px) rotate(-45deg);
+                opacity: 0;
+            }
+        }
+        /*手势*/
+        .gesture {
+            position: absolute;
+            width: 58px;
+            height: 85px;
+            left: 0;
+            right: 0;
+            bottom: 3%;
+            margin: 0 auto;
+            z-index: 10000;
+            background-image: url("gesture_01.png");
+            background-color: transparent;
+            background-size: cover;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            -webkit-animation: gesture 1.2s linear infinite;
+            animation: gesture 1.2s linear infinite;
+            -moz-animation: gesture 1.2s linear infinite;
+            -o-animation: gesture 1.2s linear infinite;
+        }
+        @-webkit-keyframes gesture {
+            0% {
+                background-image: url("gesture_01.png");
+            }
+            50% {
+                background-image: url("gesture_02.png");
+            }
+            100% {
+                background-image: url("gesture.png");
+            }
+        }
+        @keyframes gesture {
+            0% {
+                background-image: url("gesture_01.png");
+            }
+            50% {
+                background-image: url("gesture_02.png");
+            }
+            100% {
+                background-image: url("gesture.png");
+            }
+        }
+        @-moz-keyframes gesture {
+            0% {
+                background-image: url("gesture_01.png");
+            }
+            50% {
+                background-image: url("gesture_02.png");
+            }
+            100% {
+                background-image: url("gesture.png");
+            }
+        }
+        @-o-keyframes gesture {
+            0% {
+                background-image: url("gesture_01.png");
+            }
+            50% {
+                background-image: url("gesture_02.png");
+            }
+            100% {
+                background-image: url("gesture.png");
+            }
+        }
+        /*导航*/
+        #nav{
+            position: fixed;
+            width: 100%;
+            z-index: 2;
+            color: #fff;
+            text-align: center;
+            font-size: 16px;
+            background-color: rgba(50,50,50,0.2);
+            line-height: 1;
+            padding: 10px 0;
+        }
+        /*img DOM*/
+        .item {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .item img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .item a {
+            display: block;
+            width: 80%;
+            height: auto;
+            line-height: 1;
+            padding: 4% 0;
+            background-color: #ff6d06;
+            text-align: center;
+            font-size: 16px;
+            color: #fff;
+            border-radius: 25px;
+            position: absolute;
+            bottom: 20%;
+            left: 10%;
+            text-decoration: none;
+        }
+        @media screen and (min-width:640px){
+            #nav{
+                font-size: 24px;
+            }
+            .item a {
+                border-radius: 50px;
+                font-size: 32px;
+            }
+            .gesture {
+                width: 115px;
+                height: 169px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<!--<div id="nav">让天下没有难开的店铺</div>-->
+<!-- Outer Canvas 外层画布 -->
+<div id="iSlider-wrapper"></div>
+<aside class="media-wrap">
+    <span id="musicBtnTxt" style="display: none;">关闭</span>
+    <i id="musicBtn" class="music-btn on"></i>
+</aside>
+<audio src="homehelp.MP3" autoplay="autoplay" loop="loop" id="autoplay"></audio>
+<div id="iSlider-arrow"></div>
+<script src="iSlider.js"></script>
+<script src="zepto.min.js"></script>
+<script id="show-code">
+    var list = [
+        {content: "<div class='item'>" +
+        "<img src='banner_01.jpg' />" +
+        "<a href='http://a.app.qq.com/o/simple.jsp?pkgname=com.tiaohuo.assistant'>立即下载</a>" +
+        "</div>"},
+        {content: "<div class='item'>" +
+        "<img src='banner_02.jpg' />" +
+        "<div class='gesture'></div>" +
+        "</div>"},
+        {content: "banner_03.jpg"},
+        {content: "<div class='item'>" +
+        "<img src='banner_04.jpg' />" +
+        "<div class='gesture'></div>" +
+        "</div>"},
+        {content: "banner_05.jpg"},
+        {content: "<div class='item'>" +
+        "<img src='banner_06.jpg' />" +
+        "<div class='gesture'></div>" +
+        "</div>"},
+        {content: "<div class='item'>" +
+        "<img src='banner_07.jpg' />" +
+        "<a style='bottom: 6%;opacity:0.7;' href='http://a.app.qq.com/o/simple.jsp?pkgname=com.tiaohuo.assistant'>立即下载</a>" +
+        "</div>"}
+    ];
+
+    var islider = new iSlider({
+        data: list,
+        dom: document.getElementById("iSlider-wrapper"),
+        isVertical: true,
+        isLooping: false,
+        animateType: 'default',
+        isDebug: true,
+        inertia: false,
+        oninitialized:function () {
+            stopDrop();
+        },
+        onslidechange: function (idx) {
+            if (this.isLooping === false) {
+                if (idx === 0) {
+                    document.getElementById('iSlider-arrow').style.display = 'block';
+                }
+                else {
+                    document.getElementById('iSlider-arrow').style.display = 'none';
+                }
+            }
+        }
+    });
+    /**
+     * 禁止浏览器下拉回弹
+     */
+    function stopDrop() {
+        $(document.body).on('touchmove', function(event) {
+                event.preventDefault();
+        });
+    }
+    var audio = document.getElementById('autoplay');
+    var controller = document.getElementById('musicBtn');
+    var controllerHint = document.getElementById('musicBtnTxt');
+    document.getElementById('iSlider-wrapper').style.height = $(window).height() + 'px';
+    console.log($(window).height());
+    document.getElementById('musicBtn').addEventListener('touchstart', function () {
+
+        controllerHint.style.display = '';
+        if (audio.paused) {
+            audio.play();
+            controller.className = 'music-btn on';
+            controllerHint.innerHTML = '开启';
+        } else {
+            audio.pause();
+            controller.className = 'music-btn';
+            controllerHint.innerHTML = '关闭';
+        }
+
+        setTimeout(function () {
+            controllerHint.style.display = 'none';
+        }, 1000);
+
+    }, false);
+    //ios自动播放音乐
+    function audioAutoPlay(id){
+        var audios = document.getElementById(id);
+        audios.play();
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            audios.play();
+        }, false);
+    }
+    audioAutoPlay('autoplay');
+</script>
+</body>
+</html>
